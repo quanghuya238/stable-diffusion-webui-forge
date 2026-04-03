@@ -34,9 +34,13 @@ class ScriptPostprocessingUpscale(scripts_postprocessing.ScriptPostprocessing):
             with FormRow():
                 extras_upscaler_1 = gr.Dropdown(label='Upscaler 1', elem_id="extras_upscaler_1", choices=[x.name for x in shared.sd_upscalers], value=shared.sd_upscalers[0].name)
 
-            with FormRow():
-                extras_upscaler_2 = gr.Dropdown(label='Upscaler 2', elem_id="extras_upscaler_2", choices=[x.name for x in shared.sd_upscalers], value=shared.sd_upscalers[0].name)
-                extras_upscaler_2_visibility = gr.Slider(minimum=0.0, maximum=1.0, step=0.001, label="Upscaler 2 visibility", value=0.0, elem_id="extras_upscaler_2_visibility")
+            with FormRow(visible=False):
+                extras_upscaler_2 = gr.Dropdown(label='Upscaler 2', elem_id="extras_upscaler_2",
+                                                choices=[x.name for x in shared.sd_upscalers],
+                                                value=shared.sd_upscalers[0].name)
+                extras_upscaler_2_visibility = gr.Slider(minimum=0.0, maximum=1.0, step=0.001,
+                                                         label="Upscaler 2 visibility", value=0.0,
+                                                         elem_id="extras_upscaler_2_visibility")
 
             with FormRow():
                 with gr.Tabs(elem_id="extras_resize_mode"):
