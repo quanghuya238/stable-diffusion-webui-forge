@@ -694,7 +694,7 @@ def create_ui():
                                         else:
                                             return w, h
 
-                                    img_sources = [init_img.background, sketch.background, init_img_with_mask.background, inpaint_color_sketch.background, init_img_inpaint]
+                                    img_sources = [init_img.background, sketch.background, init_img_with_mask.background, inpaint_color_sketch.background]
                                     for i in img_sources:
                                         i.change(fn=updateWH, inputs=[i, width, height], outputs=[width, height], show_progress='hidden')
                                         i.change(**on_change_args)
@@ -786,8 +786,6 @@ def create_ui():
                 init_img_with_mask.foreground,
                 inpaint_color_sketch.background,
                 inpaint_color_sketch.foreground,
-                init_img_inpaint,
-                init_mask_inpaint,
                 mask_blur,
                 mask_alpha,
                 inpainting_fill,
@@ -805,15 +803,7 @@ def create_ui():
                 inpaint_full_res,
                 inpaint_full_res_padding,
                 inpainting_mask_invert,
-                img2img_batch_input_dir,
-                img2img_batch_output_dir,
-                img2img_batch_inpaint_mask_dir,
                 override_settings,
-                img2img_batch_use_png_info,
-                img2img_batch_png_info_props,
-                img2img_batch_png_info_dir,
-                img2img_batch_source_type,
-                img2img_batch_upload,
             ] + custom_inputs
 
             img2img_args = dict(
@@ -833,13 +823,10 @@ def create_ui():
                 _js="get_img2img_tab_index",
                 inputs=[
                     dummy_component,
-                    img2img_batch_input_dir,
-                    img2img_batch_output_dir,
                     init_img.background,
                     sketch.background,
                     init_img_with_mask.background,
                     inpaint_color_sketch.background,
-                    init_img_inpaint,
                 ],
                 outputs=[toprow.prompt, dummy_component],
             )
