@@ -1033,7 +1033,7 @@ class ControlNetUiGroup(object):
         self.callbacks_registered = True
         self.register_send_dimensions()
         self.register_run_annotator()
-        self.register_sync_batch_dir()
+        #self.register_sync_batch_dir()
         self.register_shift_upload_mask()
         if self.is_img2img:
             self.register_shift_crop_input_image()
