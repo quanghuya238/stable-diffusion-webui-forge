@@ -772,39 +772,58 @@ def create_ui():
                 )
 
             output_panel = create_output_panel("img2img", opts.outdir_img2img_samples, toprow)
-
+            dummy_init_img_inpaint = gr.State(None)
+            dummy_init_mask_inpaint = gr.State(None)
+            dummy_batch_input_dir = gr.State("")
+            dummy_batch_output_dir = gr.State("")
+            dummy_batch_inpaint_mask_dir = gr.State("")
+            dummy_batch_source_type = gr.State("upload")
+            dummy_batch_use_png_info = gr.State(False)
+            dummy_batch_png_info_props = gr.State([])
+            dummy_batch_png_info_dir = gr.State("")
+            dummy_batch_upload = gr.State([])
             submit_img2img_inputs = [
-                dummy_component,
-                img2img_selected_tab,
-                toprow.prompt,
-                toprow.negative_prompt,
-                toprow.ui_styles.dropdown,
-                init_img.background,
-                sketch.background,
-                sketch.foreground,
-                init_img_with_mask.background,
-                init_img_with_mask.foreground,
-                inpaint_color_sketch.background,
-                inpaint_color_sketch.foreground,
-                mask_blur,
-                mask_alpha,
-                inpainting_fill,
-                batch_count,
-                batch_size,
-                cfg_scale,
-                distilled_cfg_scale,
-                image_cfg_scale,
-                denoising_strength,
-                selected_scale_tab,
-                height,
-                width,
-                scale_by,
-                resize_mode,
-                inpaint_full_res,
-                inpaint_full_res_padding,
-                inpainting_mask_invert,
-                override_settings,
-            ] + custom_inputs
+                                        dummy_component,
+                                        img2img_selected_tab,
+                                        toprow.prompt,
+                                        toprow.negative_prompt,
+                                        toprow.ui_styles.dropdown,
+                                        init_img.background,
+                                        sketch.background,
+                                        sketch.foreground,
+                                        init_img_with_mask.background,
+                                        init_img_with_mask.foreground,
+                                        inpaint_color_sketch.background,
+                                        inpaint_color_sketch.foreground,
+                                        dummy_init_img_inpaint,
+                                        dummy_init_mask_inpaint,
+                                        mask_blur,
+                                        mask_alpha,
+                                        inpainting_fill,
+                                        batch_count,
+                                        batch_size,
+                                        cfg_scale,
+                                        distilled_cfg_scale,
+                                        image_cfg_scale,
+                                        denoising_strength,
+                                        selected_scale_tab,
+                                        height,
+                                        width,
+                                        scale_by,
+                                        resize_mode,
+                                        inpaint_full_res,
+                                        inpaint_full_res_padding,
+                                        inpainting_mask_invert,
+                                        dummy_batch_input_dir,
+                                        dummy_batch_output_dir,
+                                        dummy_batch_inpaint_mask_dir,
+                                        override_settings,
+                                        dummy_batch_use_png_info,
+                                        dummy_batch_png_info_props,
+                                        dummy_batch_png_info_dir,
+                                        dummy_batch_source_type,
+                                        dummy_batch_upload,
+                                    ] + custom_inputs
 
             img2img_args = dict(
                 fn=wrap_gradio_gpu_call(modules.img2img.img2img, extra_outputs=[None, '', '']),
