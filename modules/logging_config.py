@@ -1,3 +1,4 @@
+#cấu hình hệ thống log cho WebUI.
 import logging
 import os
 

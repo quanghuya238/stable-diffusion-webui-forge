@@ -1,3 +1,4 @@
+#chứa các hàm tiện ích được gọi trong initialize.py để fix bugs và cấu hình hệ thống.
 import json
 import os
 import signal

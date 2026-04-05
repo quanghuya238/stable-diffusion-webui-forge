@@ -1,3 +1,4 @@
+#Vá lỗi và tùy chỉnh Gradio để hoạt động đúng với Forge.
 import inspect
 import types
 import warnings

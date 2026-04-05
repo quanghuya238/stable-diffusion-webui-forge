@@ -1,3 +1,4 @@
+#Phân công CPU/GPU cho từng tác vụ
 import contextlib
 import torch
 from backend import memory_management

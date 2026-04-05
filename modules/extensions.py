@@ -1,3 +1,4 @@
+#Tìm, load, bật/tắt extensions trong Forge
 from __future__ import annotations
 
 import configparser

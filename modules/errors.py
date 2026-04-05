@@ -1,3 +1,4 @@
+#Bắt và hiển thị lỗi, tránh Forge crash
 import sys
 import textwrap
 import traceback

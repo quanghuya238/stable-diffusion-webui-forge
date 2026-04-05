@@ -1,3 +1,4 @@
+#Lớp trung gian để gọi tool sửa mặt (CodeFormer hoặc GFPGAN).
 from modules import shared
 
 

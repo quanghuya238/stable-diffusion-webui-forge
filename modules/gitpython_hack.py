@@ -1,3 +1,4 @@
+#Sửa lỗi của thư viện GitPython — tránh dùng process chạy ngầm khi đọc thông tin git.
 from __future__ import annotations
 
 import io

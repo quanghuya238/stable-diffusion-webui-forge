@@ -1,3 +1,4 @@
+#Lưu kết quả tính toán để dùng lại, tránh làm đi làm lại
 import json
 import os
 import os.path

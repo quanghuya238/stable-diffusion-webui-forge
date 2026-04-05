@@ -1,3 +1,4 @@
+#Đọc tham số dòng lệnh khi khởi động (--share, --port...)
 import argparse
 import json
 import os

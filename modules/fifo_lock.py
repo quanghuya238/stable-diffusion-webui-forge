@@ -1,3 +1,4 @@
+#Xếp hàng công bằng khi nhiều người/luồng cùng tranh nhau tài nguyên.
 import threading
 import collections
 

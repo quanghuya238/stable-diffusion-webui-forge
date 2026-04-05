@@ -1,3 +1,4 @@
+#xử lý copy/paste thông tin generate giữa các tab và đọc/ghi metadata ảnh.
 from __future__ import annotations
 import base64
 import io

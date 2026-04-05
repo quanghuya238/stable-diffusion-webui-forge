@@ -1,4 +1,4 @@
-# this scripts installs necessary requirements and launches main program in webui.py
+# khởi động và cài đặt môi trường trước khi chạy WebUI.
 import logging
 import re
 import subprocess

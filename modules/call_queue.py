@@ -1,3 +1,4 @@
+#Xếp hàng chờ khi bấm Generate, tránh xử lý 2 việc cùng lúc
 import os.path
 from functools import wraps
 import html

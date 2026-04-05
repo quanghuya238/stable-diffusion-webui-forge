@@ -1,3 +1,4 @@
+#Phóng to ảnh x4 bằng AI ESRGAN
 from modules import modelloader, devices, errors
 from modules.shared import opts
 from modules.upscaler import Upscaler, UpscalerData

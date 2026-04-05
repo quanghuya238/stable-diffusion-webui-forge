@@ -1,3 +1,4 @@
+#xử lý đa ngôn ngữ cho giao diện WebUI.
 import json
 import os
 

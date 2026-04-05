@@ -1,3 +1,4 @@
+#lưu ảnh sau khi generate, lưu kèm thông tin generate, đọc thông tin generate từ ảnh có sẵn, dùng trong tab PNG Info,resize ảnh theo 3 mode
 from __future__ import annotations
 
 import datetime

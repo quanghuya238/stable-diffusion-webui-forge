@@ -1,3 +1,4 @@
+#Giống hệt codeformer_model.py — sửa mặt bằng AI, nhưng dùng model GFPGAN của Tencent thay vì CodeFormer.
 from __future__ import annotations
 
 import logging

@@ -1,3 +1,4 @@
+#xử lý toàn bộ logic khi bấm Generate trong tab Img2img
 import os
 from contextlib import closing
 from pathlib import Path

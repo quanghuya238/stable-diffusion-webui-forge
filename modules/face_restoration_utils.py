@@ -1,3 +1,4 @@
+#Xử lý kỹ thuật chi tiết của việc sửa mặt — phần "ruột" mà CodeFormer và GFPGAN đều dùng chung.
 from __future__ import annotations
 
 import logging

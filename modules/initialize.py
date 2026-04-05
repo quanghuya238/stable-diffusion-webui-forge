@@ -1,3 +1,4 @@
+#đây là file khởi động toàn bộ hệ thống, bỏ đi WebUI không chạy được
 import importlib
 import logging
 import sys
