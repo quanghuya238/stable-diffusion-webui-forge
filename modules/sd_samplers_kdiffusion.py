@@ -13,24 +13,13 @@ from backend.sampling.sampling_function import sampling_prepare, sampling_cleanu
 
 samplers_k_diffusion = [
     ('DPM++ 2M', 'sample_dpmpp_2m', ['k_dpmpp_2m'], {'scheduler': 'karras'}),
-    ('DPM++ SDE', 'sample_dpmpp_sde', ['k_dpmpp_sde'], {'scheduler': 'karras', "second_order": True, "brownian_noise": True}),
     ('DPM++ 2M SDE', 'sample_dpmpp_2m_sde', ['k_dpmpp_2m_sde'], {'scheduler': 'exponential', "brownian_noise": True}),
-    ('DPM++ 2M SDE Heun', 'sample_dpmpp_2m_sde', ['k_dpmpp_2m_sde_heun'], {'scheduler': 'exponential', "brownian_noise": True, "solver_type": "heun"}),
-    ('DPM++ 2S a', 'sample_dpmpp_2s_ancestral', ['k_dpmpp_2s_a'], {'scheduler': 'karras', "uses_ensd": True, "second_order": True}),
+    ('DPM++ SDE', 'sample_dpmpp_sde', ['k_dpmpp_sde'], {'scheduler': 'karras', "second_order": True, "brownian_noise": True}),
     ('DPM++ 3M SDE', 'sample_dpmpp_3m_sde', ['k_dpmpp_3m_sde'], {'scheduler': 'exponential', 'discard_next_to_last_sigma': True, "brownian_noise": True}),
     ('Euler a', 'sample_euler_ancestral', ['k_euler_a', 'k_euler_ancestral'], {"uses_ensd": True}),
     ('Euler', 'sample_euler', ['k_euler'], {}),
-    ('LMS', 'sample_lms', ['k_lms'], {}),
     ('Heun', 'sample_heun', ['k_heun'], {"second_order": True}),
-    ('DPM2', 'sample_dpm_2', ['k_dpm_2'], {'scheduler': 'karras', 'discard_next_to_last_sigma': True, "second_order": True}),
-    ('DPM2 a', 'sample_dpm_2_ancestral', ['k_dpm_2_a'], {'scheduler': 'karras', 'discard_next_to_last_sigma': True, "uses_ensd": True, "second_order": True}),
-    ('DPM fast', 'sample_dpm_fast', ['k_dpm_fast'], {"uses_ensd": True}),
-    ('DPM adaptive', 'sample_dpm_adaptive', ['k_dpm_ad'], {"uses_ensd": True}),
-    ('Restart', sd_samplers_extra.restart_sampler, ['restart'], {'scheduler': 'karras', "second_order": True}),
-    ('HeunPP2', 'sample_heunpp2', ['heunpp2'], {}),
-    ('IPNDM', 'sample_ipndm', ['ipndm'], {}),
-    ('IPNDM_V', 'sample_ipndm_v', ['ipndm_v'], {}),
-    ('DEIS', 'sample_deis', ['deis'], {}),
+    ('LMS', 'sample_lms', ['k_lms'], {}),
 ]
 
 
@@ -43,10 +32,6 @@ samplers_data_k_diffusion = [
 sampler_extra_params = {
     'sample_euler': ['s_churn', 's_tmin', 's_tmax', 's_noise'],
     'sample_heun': ['s_churn', 's_tmin', 's_tmax', 's_noise'],
-    'sample_dpm_2': ['s_churn', 's_tmin', 's_tmax', 's_noise'],
-    'sample_dpm_fast': ['s_noise'],
-    'sample_dpm_2_ancestral': ['s_noise'],
-    'sample_dpmpp_2s_ancestral': ['s_noise'],
     'sample_dpmpp_sde': ['s_noise'],
     'sample_dpmpp_2m_sde': ['s_noise'],
     'sample_dpmpp_3m_sde': ['s_noise'],
