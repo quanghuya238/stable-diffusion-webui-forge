@@ -694,7 +694,7 @@ def create_ui():
                                         else:
                                             return w, h
 
-                                    img_sources = [init_img.background, sketch.background, init_img_with_mask.background, inpaint_color_sketch.background]
+                                    img_sources = [init_img.background,  init_img_with_mask.background]
                                     for i in img_sources:
                                         i.change(fn=updateWH, inputs=[i, width, height], outputs=[width, height], show_progress='hidden')
                                         i.change(**on_change_args)
@@ -789,12 +789,9 @@ def create_ui():
                                         toprow.negative_prompt,
                                         toprow.ui_styles.dropdown,
                                         init_img.background,
-                                        sketch.background,
-                                        sketch.foreground,
+
                                         init_img_with_mask.background,
                                         init_img_with_mask.foreground,
-                                        inpaint_color_sketch.background,
-                                        inpaint_color_sketch.foreground,
                                         dummy_init_img_inpaint,
                                         dummy_init_mask_inpaint,
                                         mask_blur,
@@ -843,9 +840,7 @@ def create_ui():
                 inputs=[
                     dummy_component,
                     init_img.background,
-                    sketch.background,
                     init_img_with_mask.background,
-                    inpaint_color_sketch.background,
                 ],
                 outputs=[toprow.prompt, dummy_component],
             )
