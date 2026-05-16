@@ -400,7 +400,7 @@ class StableDiffusionProcessing:
         elif isinstance(self.negative_prompt, list):
             self.all_prompts = [self.prompt] * len(self.negative_prompt)
         else:
-            self.all_prompts = self.batch_size * self.n_iter * [self.prompt]
+            self.all_prompts = int(self.batch_size) * int(self.n_iter) * [self.prompt]
 
         if isinstance(self.negative_prompt, list):
             self.all_negative_prompts = self.negative_prompt
