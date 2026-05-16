@@ -152,6 +152,7 @@ def img2img_function(id_task: str, request: gr.Request, mode: int, prompt: str, 
     print(
         f"DEBUG args: mode={mode}, n_iter={n_iter}, batch_size={batch_size}, cfg_scale={cfg_scale}, height={height}, width={width}, resize_mode={resize_mode}, denoising_strength={denoising_strength}")
     print(f"DEBUG extra args count: {len(args)}, first few: {args[:5]}")
+    print(f"DEBUG ALL extra args: {args}")
     n_iter = max(1, int(round(float(n_iter)))) if n_iter else 1
     batch_size = max(1, int(round(float(batch_size)))) if batch_size else 1
     height = max(64, int(height)) if height else 512
