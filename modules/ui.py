@@ -782,6 +782,10 @@ def create_ui():
             dummy_batch_png_info_props = gr.State([])
             dummy_batch_png_info_dir = gr.State("")
             dummy_batch_upload = gr.State([])
+            dummy_sketch = gr.State(None)
+            dummy_sketch_fg = gr.State(None)
+            dummy_inpaint_color_sketch = gr.State(None)
+            dummy_inpaint_color_sketch_fg = gr.State(None)
             submit_img2img_inputs = [
                                         dummy_component,
                                         img2img_selected_tab,
@@ -789,9 +793,12 @@ def create_ui():
                                         toprow.negative_prompt,
                                         toprow.ui_styles.dropdown,
                                         init_img.background,
-
+                                        dummy_sketch,
+                                        dummy_sketch_fg,
                                         init_img_with_mask.background,
                                         init_img_with_mask.foreground,
+                                        dummy_inpaint_color_sketch,
+                                        dummy_inpaint_color_sketch_fg,
                                         dummy_init_img_inpaint,
                                         dummy_init_mask_inpaint,
                                         mask_blur,
