@@ -234,8 +234,7 @@ class StableDiffusionProcessing:
 
         self.extra_generation_params = self.extra_generation_params or {}
         self.override_settings = self.override_settings or {}
-        self.script_args = self.script_args or {}
-
+        self.script_args = self.script_args if self.script_args is not None else []
         self.refiner_checkpoint_info = None
 
         if not self.seed_enable_extras:
@@ -1762,8 +1761,9 @@ class StableDiffusionProcessingImg2Img(StableDiffusionProcessing):
             image = images.flatten(img, opts.img2img_background_color)
 
             if crop_region is None and self.resize_mode != 3:
+                print(
+                    f"DEBUG: resize_mode={self.resize_mode}, width={self.width}, height={self.height}, type_w={type(self.width)}, type_h={type(self.height)}")
                 image = images.resize_image(self.resize_mode, image, self.width, self.height)
-
             if image_mask is not None:
                 if self.mask_for_overlay.size != (image.width, image.height):
                     self.mask_for_overlay = images.resize_image(self.resize_mode, self.mask_for_overlay, image.width, image.height)
