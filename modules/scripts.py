@@ -779,10 +779,8 @@ class ScriptRunner:
 
     def run(self, p, *args):
         script_index = args[0]
-        if not isinstance(script_index, int) or script_index > len(self.selectable_scripts):
+        if not isinstance(script_index, int) or script_index == 0 or script_index > len(self.selectable_scripts):
             return None
-        # if script_index == 0 or script_index is None:
-        #     return None
 
         script = self.selectable_scripts[script_index - 1]
 
