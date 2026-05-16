@@ -119,7 +119,7 @@ def get_sampler_and_scheduler(sampler_name, scheduler_name, *, convert_automatic
         name_options = [scheduler.label, scheduler.name, *(scheduler.aliases or [])]
 
         for name_option in name_options:
-            if name.endswith(" " + name_option):
+            if isinstance(name, str) and name.endswith(" " + name_option):
                 found_scheduler = scheduler
                 name = name[0:-(len(name_option) + 1)]
                 break
