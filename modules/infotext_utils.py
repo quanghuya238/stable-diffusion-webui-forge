@@ -508,8 +508,9 @@ def create_override_settings_dict(text_pairs):
 
     params = {}
     for pair in text_pairs:
+        if ":" not in pair:
+            continue
         k, v = pair.split(":", maxsplit=1)
-
         params[k] = v.strip()
 
     mapping = [(info.infotext, k) for k, info in shared.opts.data_labels.items() if info.infotext]
