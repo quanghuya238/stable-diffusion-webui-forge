@@ -104,7 +104,7 @@ class ControlNetForForgeOfficial(scripts.Script):
             ControlNetUnit.from_dict(unit) if isinstance(unit, dict) else unit
             for unit in units
         ]
-        assert all(isinstance(unit, ControlNetUnit) for unit in units)
+        units = [unit for unit in units if isinstance(unit, ControlNetUnit)]
         enabled_units = [x for x in units if x.enabled]
         return enabled_units
 
