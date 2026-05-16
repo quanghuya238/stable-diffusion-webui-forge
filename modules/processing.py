@@ -395,6 +395,8 @@ class StableDiffusionProcessing:
         return self.token_merging_ratio or opts.token_merging_ratio
 
     def setup_prompts(self):
+        print(
+            f"DEBUG setup_prompts: batch_size={self.batch_size}, n_iter={self.n_iter}, type_b={type(self.batch_size)}, type_n={type(self.n_iter)}")
         if isinstance(self.prompt,list):
             self.all_prompts = self.prompt
         elif isinstance(self.negative_prompt, list):
