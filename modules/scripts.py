@@ -783,13 +783,17 @@ class ScriptRunner:
         if script_index == 0 or script_index is None:
             return None
 
-        script = self.selectable_scripts[script_index-1]
+        script = self.selectable_scripts[script_index - 1]
 
         if script is None:
             return None
 
         script_args = args[script.args_from:script.args_to]
-        processed = script.run(p, *script_args)
+        try:
+            processed = script.run(p, *script_args)
+        except Exception as e:
+            errors.report(f"Script {script.title()} error: {e}", exc_info=True)
+            return None
 
         shared.total_tqdm.clear()
 
