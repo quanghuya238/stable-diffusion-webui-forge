@@ -424,7 +424,7 @@ class ControlNetUiGroup(object):
 
         with gr.Row(elem_classes=["controlnet_control_type", "controlnet_row"]):
             self.type_filter = gr.Radio(
-                global_state.get_all_preprocessor_tags(),
+                ["All", "Canny", "Depth", "OpenPose", "Scribble"],
                 label=f"Control Type",
                 value="All",
                 elem_id=f"{elem_id_tabname}_{tabname}_controlnet_type_filter_radio",
