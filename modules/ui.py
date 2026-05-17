@@ -629,8 +629,9 @@ def create_ui():
 
                             img2img_tabs = [tab_img2img, tab_inpaint]
 
+                            tab_mode_map = [0, 2]
                             for i, tab in enumerate(img2img_tabs):
-                                tab.select(fn=lambda tabnum=i: tabnum, inputs=[], outputs=[img2img_selected_tab])
+                                tab.select(fn=lambda m=tab_mode_map[i]: m, inputs=[], outputs=[img2img_selected_tab])
 
                         def copyCanvas_img2img (background, foreground, source):
                             if source == 1 or source == 3: #   1 is sketch, 3 is Inpaint sketch
