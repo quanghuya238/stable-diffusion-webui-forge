@@ -385,11 +385,16 @@ def create_ui():
 
                             scripts.scripts_txt2img.setup_ui_for_section(category)
 
+
                     elif category == "batch":
+
                         if not opts.dimensions_and_batch_together:
-                            with FormRow(elem_id="txt2img_column_batch"):
-                                batch_count = gr.Slider(minimum=1, step=1, label='Batch count', value=1, elem_id="txt2img_batch_count")
-                                batch_size = gr.Slider(minimum=1, maximum=8, step=1, label='Batch size', value=1, elem_id="txt2img_batch_size")
+                            with FormRow(elem_id="txt2img_column_batch", visible=False):
+                                batch_count = gr.Slider(minimum=1, step=1, label='Batch count', value=1,
+                                                        elem_id="txt2img_batch_count")
+
+                                batch_size = gr.Slider(minimum=1, maximum=8, step=1, label='Batch size', value=1,
+                                                       elem_id="txt2img_batch_size")
 
                     elif category == "override_settings":
                         with FormRow(elem_id="txt2img_override_settings_row") as row:

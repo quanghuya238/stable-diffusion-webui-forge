@@ -18,7 +18,7 @@ class NeverOOMForForge(scripts.Script):
         return scripts.AlwaysVisible
 
     def ui(self, *args, **kwargs):
-        with gr.Accordion(open=False, label=self.title()):
+        with gr.Accordion(open=False, label=self.title(), visible=False):
             unet_enabled = gr.Checkbox(label='Enabled for UNet (always maximize offload)', value=False)
             vae_enabled = gr.Checkbox(label='Enabled for VAE (always tiled)', value=False)
         return unet_enabled, vae_enabled
