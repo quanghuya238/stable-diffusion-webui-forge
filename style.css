@@ -1746,183 +1746,234 @@ body.resizing .resize-handle { pointer-events: initial !important; }
 .interrogate-col > button { flex: 1; }
 
 /* ============================================================
-   LAYOUT OVERRIDE v2 — Chỉ target tab ngoài cùng
-   Dùng #tabs hoặc selector cụ thể của SD WebUI
+   LAYOUT OVERRIDE v3
+   - Sidebar dọc trái: 160px, to hơn
+   - Quicksettings gọn hơn
+   - Settings hiện đúng chỗ, gallery xuống sau
    ============================================================ */
 
-/* Wrapper chính của toàn bộ UI dưới quicksettings */
-#txt2img_toprow ~ div,
-.gradio-container > .main > div > .tabs,
+/* ── QUICKSETTINGS: gọn lại ── */
+#quicksettings {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 50 !important;
+    background: #0d0f17 !important;
+    border-bottom: 1px solid rgba(99,102,241,0.15) !important;
+    padding: 0.25em 0.75em !important;
+    min-height: unset !important;
+    gap: 0.5em !important;
+}
+
+#quicksettings * {
+    font-size: 0.78rem !important;
+}
+
+#quicksettings > div.model_selection {
+    min-width: 16em !important;
+}
+
+#quicksettings .gradio-slider,
+#quicksettings .gradio-number {
+    transform: scale(0.92);
+    transform-origin: left center;
+}
+
+/* ── OUTER TABS: flex row, sidebar trái ── */
 div#tabs {
     display: flex !important;
     flex-direction: row !important;
-    align-items: flex-start !important;
-    min-height: calc(100vh - 80px) !important;
+    align-items: stretch !important;
+    min-height: calc(100vh - 70px) !important;
+    gap: 0 !important;
 }
 
-/* === TAB NAV NGOÀI CÙNG (Txt2img / Img2img / Extras / PNG Info) === */
-div#tabs > .tab-nav,
-.gradio-container > .main > div > .tabs > .tab-nav {
+/* ── SIDEBAR: 160px, dọc ── */
+div#tabs > .tab-nav {
     display: flex !important;
     flex-direction: column !important;
-    width: 136px !important;
-    min-width: 136px !important;
-    max-width: 136px !important;
+    width: 160px !important;
+    min-width: 160px !important;
+    max-width: 160px !important;
     flex-shrink: 0 !important;
-    border-right: 1px solid rgba(99,102,241,0.2) !important;
+    background: #0e1020 !important;
+    border-right: 1px solid rgba(99,102,241,0.18) !important;
     border-bottom: none !important;
-    background: #131621 !important;
-    padding: 0.75em 0.4em !important;
-    gap: 0.2em !important;
-    min-height: calc(100vh - 80px) !important;
+    padding: 1em 0.5em !important;
+    gap: 0.25em !important;
     position: sticky !important;
-    top: 0 !important;
-    z-index: 10 !important;
+    top: 70px !important;
+    height: calc(100vh - 70px) !important;
     align-self: flex-start !important;
+    z-index: 10 !important;
 }
 
-/* Buttons trong tab nav ngoài — dọc */
-div#tabs > .tab-nav button,
-.gradio-container > .main > div > .tabs > .tab-nav button {
+/* Label nhỏ phía trên sidebar */
+div#tabs > .tab-nav::before {
+    content: "NAVIGATION";
+    display: block;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: #3a3f60;
+    padding: 0 0.6em 0.75em;
+    text-transform: uppercase;
+}
+
+/* Sidebar buttons */
+div#tabs > .tab-nav button {
     width: 100% !important;
     text-align: left !important;
-    padding: 0.55em 0.85em !important;
+    padding: 0.6em 1em !important;
     border-radius: 8px !important;
-    font-size: 0.82rem !important;
+    font-size: 0.88rem !important;
     font-weight: 500 !important;
-    color: #5a6080 !important;
+    color: #4a5080 !important;
     background: transparent !important;
     border: none !important;
-    border-bottom: none !important;
     border-left: 3px solid transparent !important;
     white-space: nowrap !important;
-    transition: all 0.18s ease !important;
+    transition: all 0.15s ease !important;
+    cursor: pointer !important;
 }
 
-div#tabs > .tab-nav button:hover,
-.gradio-container > .main > div > .tabs > .tab-nav button:hover {
-    background: rgba(99,102,241,0.1) !important;
-    color: #a8adc9 !important;
-    border-left-color: rgba(99,102,241,0.3) !important;
+div#tabs > .tab-nav button:hover {
+    background: rgba(99,102,241,0.08) !important;
+    color: #9095c0 !important;
+    border-left-color: rgba(99,102,241,0.25) !important;
 }
 
-div#tabs > .tab-nav button.selected,
-.gradio-container > .main > div > .tabs > .tab-nav button.selected {
-    background: rgba(99,102,241,0.18) !important;
-    color: #f0f2ff !important;
+div#tabs > .tab-nav button.selected {
+    background: rgba(99,102,241,0.15) !important;
+    color: #e0e3ff !important;
     font-weight: 600 !important;
     border-left: 3px solid #6366f1 !important;
-    border-bottom: none !important;
 }
 
-/* Tab content chiếm phần còn lại */
-div#tabs > div:not(.tab-nav),
-.gradio-container > .main > div > .tabs > div:not(.tab-nav) {
-    flex: 1 !important;
+/* Icons trước tab */
+div#tabs > .tab-nav button:nth-child(2)::before { content: "🖼  "; }
+div#tabs > .tab-nav button:nth-child(3)::before { content: "🔄  "; }
+div#tabs > .tab-nav button:nth-child(4)::before { content: "✨  "; }
+div#tabs > .tab-nav button:nth-child(5)::before { content: "📋  "; }
+
+/* ── TAB CONTENT: chiếm phần còn lại ── */
+div#tabs > div:not(.tab-nav) {
+    flex: 1 1 auto !important;
     min-width: 0 !important;
+    padding: 1em 1.25em !important;
     overflow-y: auto !important;
 }
 
-/* === TABS CON (Generation, sub-tabs...) KHÔNG bị ảnh hưởng === */
-/* Reset lại tất cả .tab-nav ở cấp sâu hơn */
+/* ── TABS CON bên trong: giữ ngang bình thường ── */
 div#tabs .tabitem .tab-nav,
-div#tabs .tabitem .tabs > .tab-nav {
+div#tabs .tabitem .tabs .tab-nav {
     display: flex !important;
-    flex-direction: row !important;       /* Tabs con vẫn nằm ngang */
+    flex-direction: row !important;
     width: auto !important;
     min-width: unset !important;
     max-width: unset !important;
+    height: auto !important;
     min-height: unset !important;
     position: relative !important;
+    top: unset !important;
     border-right: none !important;
     border-bottom: 1px solid rgba(99,102,241,0.15) !important;
     background: transparent !important;
-    padding: 0 0.3em !important;
-    flex-shrink: unset !important;
+    padding: 0 0.25em !important;
     gap: 0 !important;
-    top: unset !important;
+    flex-shrink: unset !important;
+    align-self: unset !important;
+}
+
+div#tabs .tabitem .tab-nav::before {
+    display: none !important;
 }
 
 div#tabs .tabitem .tab-nav button,
-div#tabs .tabitem .tabs > .tab-nav button {
+div#tabs .tabitem .tabs .tab-nav button {
     width: auto !important;
     text-align: center !important;
     border-left: none !important;
     border-bottom: 2px solid transparent !important;
     border-radius: 6px 6px 0 0 !important;
-    padding: 0.4em 0.9em !important;
+    padding: 0.35em 0.8em !important;
     font-size: 0.8rem !important;
-    white-space: nowrap !important;
+    color: #4a5080 !important;
 }
 
 div#tabs .tabitem .tab-nav button.selected,
-div#tabs .tabitem .tabs > .tab-nav button.selected {
+div#tabs .tabitem .tabs .tab-nav button.selected {
     border-left: none !important;
     border-bottom: 2px solid #6366f1 !important;
-    background: rgba(99,102,241,0.12) !important;
-    color: #f0f2ff !important;
+    background: rgba(99,102,241,0.1) !important;
+    color: #e0e3ff !important;
 }
 
-div#tabs .tabitem .tabs,
-div#tabs .tabitem > div > .tabs {
-    flex-direction: column !important;    /* Tabs con layout dọc bình thường */
-}
-
-/* === GALLERY XUỐNG DƯỚI CONTROLS === */
-#txt2img_interface > div,
-#img2img_interface > div {
-    display: flex !important;
+div#tabs .tabitem .tabs {
     flex-direction: column !important;
 }
 
+/* ── INTERFACE LAYOUT: controls trên · gallery dưới ── */
+/* Txt2img / Img2img main split — đổi thành column */
+#txt2img_interface,
+#img2img_interface {
+    flex-direction: column !important;
+}
+
+/* Cột trái (controls): full width */
+#txt2img_interface > div:first-child,
+#img2img_interface > div:first-child {
+    width: 100% !important;
+    max-width: 100% !important;
+    flex: unset !important;
+    min-width: unset !important;
+}
+
+/* Cột phải (gallery): full width, sau controls */
 #txt2img_results,
 #img2img_results {
     position: relative !important;
     top: unset !important;
     width: 100% !important;
-    order: 99 !important;               /* Đẩy gallery xuống cuối */
-    margin-top: 1em !important;
+    max-width: 100% !important;
+    flex: unset !important;
+    margin-top: 1.25em !important;
+    padding-top: 1em !important;
+    border-top: 1px solid rgba(99,102,241,0.15) !important;
 }
 
-/* Đường phân cách trước gallery */
-#txt2img_results::before,
-#img2img_results::before {
-    content: '';
-    display: block;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(99,102,241,0.35), transparent);
-    margin-bottom: 0.75em;
-}
-
+/* Gallery đủ cao khi full width */
 #txt2img_gallery,
 #img2img_gallery {
-    min-height: 380px !important;
+    min-height: 400px !important;
+    max-height: 65vh !important;
 }
 
-/* Generate button full width */
-#txt2img_generate, #img2img_generate {
+/* Generate full width */
+#txt2img_generate,
+#img2img_generate {
     width: 100% !important;
+    min-height: 3.2em !important;
 }
 
-/* === RESPONSIVE — mobile tabs ngang trở lại === */
+/* ── RESPONSIVE ── */
 @media (max-width: 768px) {
-    div#tabs,
-    .gradio-container > .main > div > .tabs {
+    div#tabs {
         flex-direction: column !important;
     }
-    div#tabs > .tab-nav,
-    .gradio-container > .main > div > .tabs > .tab-nav {
+    div#tabs > .tab-nav {
         flex-direction: row !important;
         width: 100% !important;
         min-width: unset !important;
-        min-height: unset !important;
+        height: auto !important;
         position: relative !important;
+        top: unset !important;
         border-right: none !important;
         border-bottom: 1px solid rgba(99,102,241,0.2) !important;
         overflow-x: auto !important;
+        padding: 0.4em !important;
     }
-    div#tabs > .tab-nav button,
-    .gradio-container > .main > div > .tabs > .tab-nav button {
+    div#tabs > .tab-nav::before { display: none !important; }
+    div#tabs > .tab-nav button {
         width: auto !important;
         border-left: none !important;
         border-bottom: 2px solid transparent !important;
