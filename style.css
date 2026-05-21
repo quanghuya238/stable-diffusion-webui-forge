@@ -2004,3 +2004,44 @@ div#tabs .tabitem .tabs {
 .gradio-button.generate-box-skip {
     z-index: 5 !important;
 }
+/* Force hiện live preview + progress */
+[id$="_results"] {
+    position: relative !important;
+}
+
+.progress-container {
+    position: relative !important;
+    min-height: 8px !important;
+}
+
+.progressDiv {
+    display: block !important;
+    position: relative !important;
+    height: 8px !important;
+    width: 100% !important;
+    background: #1e2134 !important;
+    border-radius: 99px !important;
+    overflow: hidden !important;
+    margin-bottom: 0.5em !important;
+    top: unset !important;
+}
+
+.progressDiv .progress {
+    display: block !important;
+    height: 100% !important;
+}
+
+.livePreview {
+    position: relative !important;
+    display: block !important;
+    width: 100% !important;
+    min-height: 400px !important;
+    z-index: 1 !important;
+}
+
+.livePreview img {
+    position: relative !important;
+    width: 100% !important;
+    height: auto !important;
+    object-fit: contain !important;
+}
