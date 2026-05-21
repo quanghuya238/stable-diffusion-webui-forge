@@ -1995,3 +1995,12 @@ div#tabs .tabitem .tabs {
     z-index: 10 !important;
     /* KHÔNG override display ở đây — để JS tự điều khiển */
 }
+#txt2img_generate, #img2img_generate {
+    z-index: 1 !important;
+}
+
+.gradio-button.generate-box-interrupt,
+.gradio-button.generate-box-interrupting,
+.gradio-button.generate-box-skip {
+    z-index: 5 !important;
+}
