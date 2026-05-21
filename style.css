@@ -1979,3 +1979,19 @@ div#tabs .tabitem .tabs {
         border-bottom: 2px solid transparent !important;
     }
 }
+/* Fix interrupt button hiển thị đúng */
+.generate-box {
+    position: relative !important;
+    display: flex !important;
+    width: 100% !important;
+}
+
+.gradio-button.generate-box-interrupt,
+.gradio-button.generate-box-interrupting,
+.gradio-button.generate-box-skip {
+    position: absolute !important;
+    top: 0 !important;
+    height: 100% !important;
+    z-index: 10 !important;
+    /* KHÔNG override display ở đây — để JS tự điều khiển */
+}
