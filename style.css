@@ -15,7 +15,6 @@ html, body, .gradio-container, .main, #root {
     color: #f0f2ff !important;
 }
 
-/* Force all Gradio color vars into dark palette */
 html {
     --background-fill-primary:        #0d0f17 !important;
     --background-fill-secondary:      #131621 !important;
@@ -62,14 +61,12 @@ html {
     --prose-header-text-color:   #f0f2ff !important;
 }
 
-/* Gradio wrapping elements */
 .wrap, .wrap-inner, .svelte-1ipelgc, .prose,
 div[data-testid], .form, .block, .panel {
     background: transparent;
     color: #f0f2ff;
 }
 
-/* Inputs universal dark */
 input, textarea, select {
     background: #161929 !important;
     color: #f0f2ff !important;
@@ -80,12 +77,10 @@ input::placeholder, textarea::placeholder {
     color: #5a6080 !important;
 }
 
-/* Labels */
 label span, .label-wrap span {
     color: #a8adc9 !important;
 }
 
-/* Tab pills */
 .tab-nav button {
     color: #5a6080 !important;
 }
@@ -94,7 +89,6 @@ label span, .label-wrap span {
     border-bottom-color: #6366f1 !important;
 }
 
-/* Checkboxes & radios */
 input[type="checkbox"], input[type="radio"] {
     accent-color: #6366f1 !important;
 }
@@ -103,7 +97,6 @@ input[type="checkbox"], input[type="radio"] {
    DESIGN TOKENS
    ============================================================ */
 :root {
-    /* Core palette */
     --sd-bg-primary:       #0d0f17;
     --sd-bg-secondary:     #131621;
     --sd-bg-tertiary:      #1a1d2e;
@@ -111,49 +104,40 @@ input[type="checkbox"], input[type="radio"] {
     --sd-bg-input:         #161929;
     --sd-bg-hover:         #252a40;
 
-    /* Accent gradient */
     --sd-accent-start:     #7c3aed;
     --sd-accent-mid:       #6366f1;
     --sd-accent-end:       #3b82f6;
     --sd-accent-glow:      rgba(99, 102, 241, 0.25);
 
-    /* Text hierarchy */
     --sd-text-primary:     #f0f2ff;
     --sd-text-secondary:   #a8adc9;
     --sd-text-muted:       #5a6080;
     --sd-text-accent:      #818cf8;
 
-    /* Borders */
     --sd-border-subtle:    rgba(99, 102, 241, 0.12);
     --sd-border-medium:    rgba(99, 102, 241, 0.25);
     --sd-border-strong:    rgba(99, 102, 241, 0.5);
 
-    /* Status */
     --sd-success:          #10b981;
     --sd-warning:          #f59e0b;
     --sd-error:            #ef4444;
 
-    /* Radius */
     --sd-radius-sm:        6px;
     --sd-radius-md:        10px;
     --sd-radius-lg:        14px;
     --sd-radius-xl:        20px;
 
-    /* Shadows */
     --sd-shadow-sm:        0 1px 3px rgba(0,0,0,0.4);
     --sd-shadow-md:        0 4px 16px rgba(0,0,0,0.5);
     --sd-shadow-glow:      0 0 20px var(--sd-accent-glow);
 
-    /* Gradients */
     --sd-gradient-accent:  linear-gradient(135deg, var(--sd-accent-start), var(--sd-accent-mid), var(--sd-accent-end));
     --sd-gradient-card:    linear-gradient(145deg, #1e2134, #161929);
 
-    /* ---- Override Gradio built-in vars ---- */
     --checkbox-label-gap:       0.25em 0.1em;
     --section-header-text-size: 12pt;
     --block-background-fill:    transparent;
 
-    /* Gradio color system overrides */
     --background-fill-primary:       var(--sd-bg-primary);
     --background-fill-secondary:     var(--sd-bg-secondary);
     --input-background-fill:         var(--sd-bg-input);
@@ -196,7 +180,6 @@ body {
     line-height: 1.5;
 }
 
-/* Subtle noise texture on body */
 body::before {
     content: '';
     position: fixed;
@@ -207,7 +190,7 @@ body::before {
 }
 
 /* ============================================================
-   GRADIO GENERAL FIXES (preserved + enhanced)
+   GRADIO GENERAL FIXES
    ============================================================ */
 
 .block.padded:not(.gradio-accordion) {
@@ -265,7 +248,6 @@ div.compact { gap: 1em; }
     text-transform: uppercase;
 }
 
-/* Dropdown styling */
 .gradio-dropdown ul.options {
     z-index: 3000;
     min-width: fit-content;
@@ -320,7 +302,6 @@ div.compact { gap: 1em; }
 .gradio-html div.wrap { height: 100%; }
 div.gradio-html.min { min-height: 0; }
 
-/* Input & textarea styling */
 .gradio-textbox textarea,
 .gradio-textbox input[type="text"],
 .gradio-number input {
@@ -340,12 +321,10 @@ div.gradio-html.min { min-height: 0; }
     outline: none !important;
 }
 
-/* Slider */
 .gradio-slider input[type="range"] {
     accent-color: var(--sd-accent-mid);
 }
 
-/* Gallery */
 .block.gradio-gallery {
     background: var(--sd-bg-card) !important;
     border: 1px solid var(--sd-border-subtle) !important;
@@ -386,7 +365,6 @@ div.gradio-dropdown { overflow: visible !important; }
    BUTTON SYSTEM
    ============================================================ */
 
-/* Tool button */
 .gradio-button.tool {
     max-width: 2.4em;
     min-width: 2.4em !important;
@@ -407,7 +385,6 @@ div.gradio-dropdown { overflow: visible !important; }
     box-shadow: var(--sd-shadow-glow) !important;
 }
 
-/* Secondary down state */
 .gradio-button.secondary-down {
     background: var(--sd-bg-card);
     color: var(--sd-text-primary);
@@ -422,7 +399,6 @@ div.gradio-dropdown { overflow: visible !important; }
     background: var(--sd-bg-hover);
 }
 
-/* Custom button base */
 button.custom-button {
     border-radius: var(--sd-radius-md);
     padding: var(--button-large-padding);
@@ -601,26 +577,39 @@ input[type="checkbox"].input-accordion-checkbox {
 .generate-box-compact #txt2img_generate,
 .generate-box-compact #img2img_generate { min-height: 3em; }
 
-/* Interrupt / skip buttons */
-.generate-box { position: relative; }
+/* ============================================================
+   GENERATE BOX — Interrupt / Skip
+   FIX: một khai báo duy nhất, màu tối để không che chữ GENERATE
+   ============================================================ */
 
+.generate-box {
+    position: relative;
+    width: 100%;
+}
+
+/* Gradio JS tự set display khi cần — KHÔNG dùng !important ở đây */
 .gradio-button.generate-box-skip,
 .gradio-button.generate-box-interrupt,
 .gradio-button.generate-box-interrupting {
     position: absolute;
+    top: 0;
     width: 50%;
     height: 100%;
     display: none;
-    background: rgba(239,68,68,0.15);
-    border: 1px solid rgba(239,68,68,0.3) !important;
+    z-index: 10;
+    background: rgba(13, 15, 23, 0.85) !important;
+    border: 1px solid rgba(239, 68, 68, 0.35) !important;
     color: #fca5a5 !important;
+    font-weight: 600;
     backdrop-filter: blur(4px);
+    transition: background 0.2s ease;
 }
 
 .gradio-button.generate-box-skip:hover,
 .gradio-button.generate-box-interrupt:hover,
 .gradio-button.generate-box-interrupting:hover {
-    background: rgba(239,68,68,0.25);
+    background: rgba(239, 68, 68, 0.2) !important;
+    color: #fecaca !important;
 }
 
 .gradio-button.generate-box-interrupt,
@@ -632,6 +621,65 @@ input[type="checkbox"].input-accordion-checkbox {
 .gradio-button.generate-box-skip {
     right: 0;
     border-radius: 0 var(--sd-radius-lg) var(--sd-radius-lg) 0;
+}
+
+/* ============================================================
+   PROGRESS BAR
+   FIX: position relative (không phải absolute) để hiện đúng chỗ
+   ============================================================ */
+
+.progress-container {
+    position: relative;
+    width: 100%;
+}
+
+/* display: none — Gradio JS sẽ override thành block/flex khi generate */
+.progressDiv {
+    display: none;
+    position: relative;
+    height: 28px;
+    background: #1e2134;
+    border-radius: 6px;
+    margin-top: 6px;
+    width: 100%;
+    overflow: hidden;
+    border: 1px solid rgba(99, 102, 241, 0.2);
+}
+
+[id$=_results].mobile {
+    margin-top: 32px;
+}
+
+.progressDiv .progress {
+    width: 0%;
+    height: 28px;
+    background: linear-gradient(135deg, #7c3aed, #6366f1, #3b82f6);
+    color: white;
+    font-weight: bold;
+    line-height: 28px;
+    text-align: right;
+    border-radius: 6px;
+    overflow: visible;
+    white-space: nowrap;
+    padding: 0 0.5em;
+    font-size: 0.82rem;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+}
+
+/* livePreview — giữ nguyên */
+.livePreview {
+    position: absolute;
+    z-index: 300;
+    background: var(--sd-bg-primary);
+    width: 100%;
+    height: 100%;
+}
+
+.livePreview img {
+    position: absolute;
+    object-fit: contain;
+    width: 100%;
+    height: calc(100% - 60px);
 }
 
 /* ============================================================
@@ -817,8 +865,6 @@ table.popup-table .link {
     margin: 0;
     padding: 1em;
 }
-
-
 
 /* ============================================================
    POPUP / GLOBAL OVERLAY
@@ -1060,7 +1106,6 @@ table.popup-table .link {
 
 .compact-checkbox-group div label { padding: 0.1em 0.3em !important; }
 
-/* Row hover */
 #extensions tr:hover td,
 #config_state_extensions tr:hover td,
 #available_extensions tr:hover td { background: rgba(99, 102, 241, 0.08); }
@@ -1101,7 +1146,6 @@ footer { display: none !important; }
 .extra-network-pane .nocards h1 { font-size: 1.5em; margin-bottom: 1em; color: var(--sd-text-muted); }
 .extra-network-pane .nocards li { margin-left: 0.5em; }
 
-/* Card system */
 .extra-network-pane .card .button-row {
     display: inline-flex;
     visibility: hidden;
@@ -1193,7 +1237,6 @@ footer { display: none !important; }
 .extra-network-pane .card ul a:hover { color: #a5b4fc; }
 .extra-network-pane .card .preview { position: absolute; object-fit: cover; width: 100%; height: 100%; }
 
-/* Edit user metadata */
 .edit-user-metadata {
     width: 56em;
     background: var(--sd-bg-card) !important;
@@ -1218,7 +1261,6 @@ footer { display: none !important; }
     padding: 2em !important;
 }
 
-/* Input accordion */
 .input-accordion-extra { flex: 0 0 auto !important; margin: 0 0.5em 0 auto; }
 div.accordions > div.input-accordion { min-width: fit-content !important; }
 div.accordions > div.gradio-accordion .label-wrap span { white-space: nowrap; margin-right: 0.25em; }
@@ -1307,7 +1349,6 @@ body.resizing .resize-handle { pointer-events: initial !important; }
     overflow: hidden;
 }
 
-/* Custom scrollbars */
 .extra-network-pane .extra-network-cards::-webkit-scrollbar,
 .extra-network-pane .extra-network-tree::-webkit-scrollbar { background-color: transparent; width: 8px; }
 
@@ -1400,7 +1441,6 @@ body.resizing .resize-handle { pointer-events: initial !important; }
     background-color: rgba(99, 102, 241, 0.2);
 }
 
-/* Chevron */
 .extra-network-tree .tree-list-content-dir .tree-list-item-action-chevron {
     -ms-transform: rotate(135deg); -webkit-transform: rotate(135deg); transform: rotate(135deg);
     transition: transform 0.2s ease;
@@ -1416,7 +1456,6 @@ body.resizing .resize-handle { pointer-events: initial !important; }
     transform: rotate(135deg);
 }
 
-/* Search input in extra networks */
 .extra-network-control .extra-network-control--search::before {
     content: "🔎︎";
     position: absolute;
@@ -1459,7 +1498,6 @@ body.resizing .resize-handle { pointer-events: initial !important; }
     background-color: var(--sd-text-muted);
 }
 
-/* Sort/view controls */
 .extra-network-control .extra-network-control--sort,
 .extra-network-control .extra-network-control--tree-view,
 .extra-network-control .extra-network-control--sort-dir,
@@ -1480,7 +1518,6 @@ body.resizing .resize-handle { pointer-events: initial !important; }
     background: var(--sd-bg-hover);
 }
 
-/* Icon sizes */
 .extra-network-control .extra-network-control--sort-icon,
 .extra-network-control .extra-network-control--tree-view-icon,
 .extra-network-control .extra-network-control--sort-dir-icon,
@@ -1498,7 +1535,6 @@ body.resizing .resize-handle { pointer-events: initial !important; }
     background-color: var(--sd-text-primary);
 }
 
-/* Sort icon masks (preserved from original) */
 .extra-network-control .extra-network-control--sort[data-sortkey="default"] .extra-network-control--sort-icon {
     mask-image: url('data:image/svg+xml,<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path fill-rule="evenodd" clip-rule="evenodd" d="M1 5C1 3.34315 2.34315 2 4 2H8.43845C9.81505 2 11.015 2.93689 11.3489 4.27239L11.7808 6H13.5H20C21.6569 6 23 7.34315 23 9V11C23 11.5523 22.5523 12 22 12C21.4477 12 21 11.5523 21 11V9C21 8.44772 20.5523 8 20 8H13.5H11.7808H4C3.44772 8 3 8.44772 3 9V10V19C3 19.5523 3.44772 20 4 20H9C9.55228 20 10 20.4477 10 21C10 21.5523 9.55228 22 9 22H4C2.34315 22 1 20.6569 1 19V10V9V5ZM3 6.17071C3.31278 6.06015 3.64936 6 4 6H9.71922L9.40859 4.75746C9.2973 4.3123 8.89732 4 8.43845 4H4C3.44772 4 3 4.44772 3 5V6.17071ZM20.1716 18.7574C20.6951 17.967 21 17.0191 21 16C21 13.2386 18.7614 11 16 11C13.2386 11 11 13.2386 11 16C11 18.7614 13.2386 21 16 21C17.0191 21 17.967 20.6951 18.7574 20.1716L21.2929 22.7071C21.6834 23.0976 22.3166 23.0976 22.7071 22.7071C23.0976 22.3166 23.0976 21.6834 22.7071 21.2929L20.1716 18.7574ZM13 16C13 14.3431 14.3431 13 16 13C17.6569 13 19 14.3431 19 16C19 17.6569 17.6569 19 16 19C14.3431 19 13 17.6569 13 16Z" fill="%23000000"></path></g></svg>');
 }
@@ -1538,7 +1574,6 @@ body.resizing .resize-handle { pointer-events: initial !important; }
     transition: transform 0.2s;
 }
 
-/* Tree labels */
 .extra-network-tree .tree-list-item-label {
     position: relative;
     line-height: 1.5rem;
@@ -1681,7 +1716,6 @@ body.resizing .resize-handle { pointer-events: initial !important; }
 
 .gradio-container { animation: fadeIn 0.3s ease; }
 
-/* Column gaps */
 #txt2img_actions_column, #img2img_actions_column { gap: 0.5em; }
 #txt2img_tools, #img2img_tools { gap: 0.4em; }
 
@@ -1690,12 +1724,9 @@ body.resizing .resize-handle { pointer-events: initial !important; }
 
 /* ============================================================
    LAYOUT OVERRIDE v3
-   - Sidebar dọc trái: 160px, to hơn
-   - Quicksettings gọn hơn
-   - Settings hiện đúng chỗ, gallery xuống sau
    ============================================================ */
 
-/* ── QUICKSETTINGS: gọn lại ── */
+/* ── QUICKSETTINGS ── */
 #quicksettings {
     position: sticky !important;
     top: 0 !important;
@@ -1750,7 +1781,6 @@ div#tabs > .tab-nav {
     z-index: 10 !important;
 }
 
-/* Label nhỏ phía trên sidebar */
 div#tabs > .tab-nav::before {
     content: "NAVIGATION";
     display: block;
@@ -1762,7 +1792,6 @@ div#tabs > .tab-nav::before {
     text-transform: uppercase;
 }
 
-/* Sidebar buttons */
 div#tabs > .tab-nav button {
     width: 100% !important;
     text-align: left !important;
@@ -1792,7 +1821,6 @@ div#tabs > .tab-nav button.selected {
     border-left: 3px solid #6366f1 !important;
 }
 
-/* Icons trước tab */
 div#tabs > .tab-nav button:nth-child(2)::before { content: "🖼  "; }
 div#tabs > .tab-nav button:nth-child(3)::before { content: "🔄  "; }
 div#tabs > .tab-nav button:nth-child(4)::before { content: "✨  "; }
@@ -1856,13 +1884,11 @@ div#tabs .tabitem .tabs {
 }
 
 /* ── INTERFACE LAYOUT: controls trên · gallery dưới ── */
-/* Txt2img / Img2img main split — đổi thành column */
 #txt2img_interface,
 #img2img_interface {
     flex-direction: column !important;
 }
 
-/* Cột trái (controls): full width */
 #txt2img_interface > div:first-child,
 #img2img_interface > div:first-child {
     width: 100% !important;
@@ -1871,7 +1897,6 @@ div#tabs .tabitem .tabs {
     min-width: unset !important;
 }
 
-/* Cột phải (gallery): full width, sau controls */
 #txt2img_results,
 #img2img_results {
     position: relative !important;
@@ -1884,14 +1909,12 @@ div#tabs .tabitem .tabs {
     border-top: 1px solid rgba(99,102,241,0.15) !important;
 }
 
-/* Gallery đủ cao khi full width */
 #txt2img_gallery,
 #img2img_gallery {
     min-height: 400px !important;
     max-height: 65vh !important;
 }
 
-/* Generate full width */
 #txt2img_generate,
 #img2img_generate {
     width: 100% !important;
@@ -1921,98 +1944,4 @@ div#tabs .tabitem .tabs {
         border-left: none !important;
         border-bottom: 2px solid transparent !important;
     }
-}
-/* ── GENERATE BOX: giữ nguyên 100% logic gốc, chỉ style ── */
-.generate-box {
-    position: relative;
-    width: 100%;
-}
-
-#txt2img_generate,
-#img2img_generate {
-    width: 100%;
-    min-height: 3.2em;
-}
-
-/* QUAN TRỌNG: KHÔNG dùng !important cho display
-   Gradio JS cần tự set display:flex khi generate */
-.gradio-button.generate-box-skip,
-.gradio-button.generate-box-interrupt,
-.gradio-button.generate-box-interrupting {
-    position: absolute;
-    width: 50%;
-    height: 100%;
-    display: none;       /* Gradio JS sẽ override cái này */
-    top: 0;
-    background: rgba(180, 192, 204, 0.9);
-}
-
-.gradio-button.generate-box-skip:hover,
-.gradio-button.generate-box-interrupt:hover,
-.gradio-button.generate-box-interrupting:hover {
-    background: rgba(194, 207, 219, 0.95);
-}
-
-.gradio-button.generate-box-interrupt,
-.gradio-button.generate-box-interrupting {
-    left: 0;
-    border-radius: 0.5rem 0 0 0.5rem;
-}
-
-.gradio-button.generate-box-skip {
-    right: 0;
-    border-radius: 0 0.5rem 0.5rem 0;
-}
-
-/* ── PROGRESS BAR: giữ nguyên cấu trúc gốc, chỉ style to hơn ── */
-.progressDiv {
-    position: absolute;
-    height: 28px;
-    background: #1e2134;
-    border-radius: 6px;
-    top: -14px;
-    left: 0;
-    width: 100%;
-    overflow: hidden;
-    border: 1px solid rgba(99,102,241,0.2);
-}
-
-.progress-container {
-    position: relative;
-}
-
-[id$=_results].mobile {
-    margin-top: 32px;
-}
-
-.progressDiv .progress {
-    width: 0%;
-    height: 28px;
-    background: linear-gradient(135deg, #7c3aed, #6366f1, #3b82f6);
-    color: white;
-    font-weight: bold;
-    line-height: 28px;
-    text-align: right;
-    border-radius: 6px;
-    overflow: visible;
-    white-space: nowrap;
-    padding: 0 0.5em;
-    font-size: 0.82rem;
-    text-shadow: 0 1px 3px rgba(0,0,0,0.5);
-}
-
-/* livePreview giữ nguyên hoàn toàn */
-.livePreview {
-    position: absolute;
-    z-index: 300;
-    background: var(--sd-bg-primary);
-    width: 100%;
-    height: 100%;
-}
-
-.livePreview img {
-    position: absolute;
-    object-fit: contain;
-    width: 100%;
-    height: calc(100% - 60px);
 }
