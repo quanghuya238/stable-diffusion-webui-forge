@@ -2000,3 +2000,38 @@ div#tabs .tabitem .tabs {
     text-shadow: 0 1px 3px rgba(0,0,0,0.5);
     transition: width 0.3s ease;
 }
+/* ============================================================
+   FIX: Accordion active state — hiện rõ khi đã bấm/mở
+   ============================================================ */
+
+/* Hires.fix, ControlNet và các accordion khác khi đang mở */
+div.block.gradio-accordion:has(> .label-wrap[aria-expanded="true"]),
+div.block.gradio-accordion.open {
+    border-color: rgba(99, 102, 241, 0.5) !important;
+    background: rgba(99, 102, 241, 0.08) !important;
+}
+
+/* Label wrap khi accordion đang mở */
+.gradio-accordion .label-wrap[aria-expanded="true"] {
+    color: #818cf8 !important;
+}
+
+.gradio-accordion .label-wrap[aria-expanded="true"] span {
+    color: #818cf8 !important;
+}
+
+/* Checkbox accordion (Hires.fix dùng checkbox) */
+div.block.gradio-accordion:has(input.input-accordion-checkbox:checked) {
+    border-color: rgba(99, 102, 241, 0.5) !important;
+    background: rgba(99, 102, 241, 0.08) !important;
+    box-shadow: 0 0 0 1px rgba(99, 102, 241, 0.2) inset !important;
+}
+
+div.block.gradio-accordion:has(input.input-accordion-checkbox:checked) .label-wrap span {
+    color: #818cf8 !important;
+}
+
+/* ControlNet Unit checkbox khi đã enable */
+div.block.gradio-accordion:has(input[type="checkbox"]:checked) > .label-wrap {
+    color: #818cf8 !important;
+}
