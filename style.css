@@ -582,29 +582,6 @@ input[type="checkbox"].input-accordion-checkbox {
    FIX: một khai báo duy nhất, màu tối để không che chữ GENERATE
    ============================================================ */
 
-.generate-box {
-    position: relative;
-    width: 100%;
-}
-
-/* Gradio JS tự set display khi cần — KHÔNG dùng !important ở đây */
-.gradio-button.generate-box-skip,
-.gradio-button.generate-box-interrupt,
-.gradio-button.generate-box-interrupting {
-    position: absolute;
-    top: 0;
-    width: 50%;
-    height: 100%;
-    display: none;
-    z-index: 10;
-    background: rgba(13, 15, 23, 0.85) !important;
-    border: 1px solid rgba(239, 68, 68, 0.35) !important;
-    color: #fca5a5 !important;
-    font-weight: 600;
-    backdrop-filter: blur(4px);
-    transition: background 0.2s ease;
-}
-
 .gradio-button.generate-box-skip:hover,
 .gradio-button.generate-box-interrupt:hover,
 .gradio-button.generate-box-interrupting:hover {
@@ -634,17 +611,6 @@ input[type="checkbox"].input-accordion-checkbox {
 }
 
 /* display: none — Gradio JS sẽ override thành block/flex khi generate */
-.progressDiv {
-    display: none;
-    position: relative;
-    height: 28px;
-    background: #1e2134;
-    border-radius: 6px;
-    margin-top: 6px;
-    width: 100%;
-    overflow: hidden;
-    border: 1px solid rgba(99, 102, 241, 0.2);
-}
 
 [id$=_results].mobile {
     margin-top: 32px;
@@ -1946,44 +1912,51 @@ div#tabs .tabitem .tabs {
     }
 }
 /* ============================================================
-   FIX: Generate button layout — Interrupt/Skip không đè GENERATE
+   FIX: Interrupt + Skip nằm ngang, thay thế Generate khi đang gen
    ============================================================ */
 
 .generate-box {
-    position: relative;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 0.4em;
-}
-
-/* GENERATE button luôn hiện — không bị che */
-#txt2img_generate, #img2img_generate {
     position: relative !important;
-    z-index: 1 !important;
-    width: 100% !important;
+    width: 100%;
 }
 
-/* Interrupt + Skip: dùng flex row BÊN DƯỚI nút Generate,
-   KHÔNG dùng position absolute nữa */
+/* Interrupt + Skip: absolute, fill đúng vị trí nút Generate */
 .gradio-button.generate-box-interrupt,
 .gradio-button.generate-box-interrupting,
 .gradio-button.generate-box-skip {
-    position: relative !important;
-    top: unset !important;
-    left: unset !important;
-    right: unset !important;
+    position: absolute !important;
+    top: 0 !important;
+    height: 100% !important;
     width: 50% !important;
-    height: 2.8em !important;
+    z-index: 20 !important;
+    background: rgba(13, 15, 23, 0.92) !important;
+    border: 1px solid rgba(239, 68, 68, 0.4) !important;
+    color: #fca5a5 !important;
+    font-weight: 600 !important;
+    backdrop-filter: blur(4px) !important;
+    border-radius: 0 !important;
     min-height: unset !important;
-    z-index: auto !important;
 }
 
-/* Container wrapper chứa interrupt + skip thành 1 hàng */
-.generate-box > .generate-box-interruptrow {
-    display: flex !important;
-    width: 100%;
-    gap: 0.4em;
+.gradio-button.generate-box-interrupt,
+.gradio-button.generate-box-interrupting {
+    left: 0 !important;
+    border-radius: var(--sd-radius-lg) 0 0 var(--sd-radius-lg) !important;
+    border-right: none !important;
+}
+
+.gradio-button.generate-box-skip {
+    right: 0 !important;
+    left: unset !important;
+    border-radius: 0 var(--sd-radius-lg) var(--sd-radius-lg) 0 !important;
+    border-left: 1px solid rgba(239, 68, 68, 0.2) !important;
+}
+
+.gradio-button.generate-box-interrupt:hover,
+.gradio-button.generate-box-interrupting:hover,
+.gradio-button.generate-box-skip:hover {
+    background: rgba(239, 68, 68, 0.25) !important;
+    color: #fecaca !important;
 }
 
 /* ============================================================
