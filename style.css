@@ -2049,4 +2049,16 @@ input[type="checkbox"] {
     cursor: pointer !important;
     accent-color: #6366f1 !important;
     opacity: 1 !important;
+}/* ============================================================
+   FIX: Radio button — hiện rõ khi được chọn
+   ============================================================ */
+
+input[type="radio"] {
+    appearance: auto !important;
+    -webkit-appearance: radio !important;
+    width: 16px !important;
+    height: 16px !important;
+    cursor: pointer !important;
+    accent-color: #6366f1 !important;
+    opacity: 1 !important;
 }
