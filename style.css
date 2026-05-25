@@ -1945,3 +1945,84 @@ div#tabs .tabitem .tabs {
         border-bottom: 2px solid transparent !important;
     }
 }
+/* ============================================================
+   FIX: Generate button layout — Interrupt/Skip không đè GENERATE
+   ============================================================ */
+
+.generate-box {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4em;
+}
+
+/* GENERATE button luôn hiện — không bị che */
+#txt2img_generate, #img2img_generate {
+    position: relative !important;
+    z-index: 1 !important;
+    width: 100% !important;
+}
+
+/* Interrupt + Skip: dùng flex row BÊN DƯỚI nút Generate,
+   KHÔNG dùng position absolute nữa */
+.gradio-button.generate-box-interrupt,
+.gradio-button.generate-box-interrupting,
+.gradio-button.generate-box-skip {
+    position: relative !important;
+    top: unset !important;
+    left: unset !important;
+    right: unset !important;
+    width: 50% !important;
+    height: 2.8em !important;
+    min-height: unset !important;
+    z-index: auto !important;
+}
+
+/* Container wrapper chứa interrupt + skip thành 1 hàng */
+.generate-box > .generate-box-interruptrow {
+    display: flex !important;
+    width: 100%;
+    gap: 0.4em;
+}
+
+/* ============================================================
+   FIX: Progress bar — đảm bảo hiện khi generate
+   ============================================================ */
+
+.progressDiv {
+    display: none;
+    position: relative !important;
+    height: 28px;
+    background: #1e2134;
+    border-radius: 6px;
+    margin-top: 4px;
+    width: 100%;
+    overflow: hidden;
+    border: 1px solid rgba(99, 102, 241, 0.2);
+}
+
+/* Gradio override — cho phép JS show progressDiv */
+.progressDiv[style*="display: flex"],
+.progressDiv[style*="display:flex"],
+.progressDiv[style*="display: block"],
+.progressDiv[style*="display:block"] {
+    display: block !important;
+}
+
+.progressDiv .progress {
+    width: 0%;
+    height: 28px;
+    background: linear-gradient(135deg, #7c3aed, #6366f1, #3b82f6);
+    color: white;
+    font-weight: bold;
+    line-height: 28px;
+    text-align: right;
+    border-radius: 6px;
+    overflow: visible;
+    white-space: nowrap;
+    padding: 0 0.5em;
+    font-size: 0.82rem;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+    transition: width 0.3s ease;
+}
