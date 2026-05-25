@@ -2035,3 +2035,18 @@ div.block.gradio-accordion:has(input.input-accordion-checkbox:checked) .label-wr
 div.block.gradio-accordion:has(input[type="checkbox"]:checked) > .label-wrap {
     color: #818cf8 !important;
 }
+/* ============================================================
+   FIX: Checkbox accordion — hiện dấu tích rõ khi đã check
+   ============================================================ */
+
+input.input-accordion-checkbox,
+.gradio-accordion input[type="checkbox"],
+input[type="checkbox"] {
+    appearance: auto !important;
+    -webkit-appearance: checkbox !important;
+    width: 16px !important;
+    height: 16px !important;
+    cursor: pointer !important;
+    accent-color: #6366f1 !important;
+    opacity: 1 !important;
+}
