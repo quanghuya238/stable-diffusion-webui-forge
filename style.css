@@ -1936,6 +1936,7 @@ div#tabs .tabitem .tabs {
     backdrop-filter: blur(4px) !important;
     border-radius: 0 !important;
     min-height: unset !important;
+    display: none;
 }
 
 .gradio-button.generate-box-interrupt,
