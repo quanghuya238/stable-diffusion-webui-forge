@@ -2062,3 +2062,45 @@ input[type="radio"] {
     accent-color: #6366f1 !important;
     opacity: 1 !important;
 }
+/* ============================================================
+   ẨN NÚT BÚT CHÌ bên cạnh style dropdown
+   ============================================================ */
+
+#txt2img_style_apply, #img2img_style_apply,
+button[title="Apply style"],
+.gradio-button[title="Apply style"] {
+    display: none !important;
+}
+
+/* ============================================================
+   THANH KÉO (SLIDER) — dễ nhìn hơn
+   ============================================================ */
+
+input[type="range"] {
+    height: 6px !important;
+    border-radius: 99px !important;
+    background: rgba(99, 102, 241, 0.2) !important;
+    accent-color: #6366f1 !important;
+    cursor: pointer !important;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none !important;
+    width: 18px !important;
+    height: 18px !important;
+    border-radius: 50% !important;
+    background: #6366f1 !important;
+    border: 2px solid #a5b4fc !important;
+    box-shadow: 0 0 6px rgba(99,102,241,0.5) !important;
+    cursor: pointer !important;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+    height: 6px !important;
+    border-radius: 99px !important;
+    background: rgba(99, 102, 241, 0.2) !important;
+}
+
+input[type="range"]:focus::-webkit-slider-thumb {
+    box-shadow: 0 0 0 3px rgba(99,102,241,0.3) !important;
+}
