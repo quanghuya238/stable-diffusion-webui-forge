@@ -2161,3 +2161,75 @@ button[title="Apply style"] {
 #img2img_hr_resize_x, #img2img_hr_resize_y {
     display: none !important;
 }
+/* ============================================================
+   ẨN: Batch Folder, Batch Upload tabs trong ControlNet
+   ============================================================ */
+
+#img2img_batch_tab, #img2img_batch_upload_tab,
+button[id*="batch_folder"], button[id*="batch_upload"] {
+    display: none !important;
+}
+
+/* ============================================================
+   FIX: Radio button và Checkbox — đẹp hơn
+   ============================================================ */
+
+input[type="radio"] {
+    -webkit-appearance: none !important;
+    appearance: none !important;
+    width: 16px !important;
+    height: 16px !important;
+    border: 2px solid rgba(99,102,241,0.5) !important;
+    border-radius: 50% !important;
+    background: #161929 !important;
+    cursor: pointer !important;
+    position: relative !important;
+    flex-shrink: 0 !important;
+}
+
+input[type="radio"]:checked {
+    background: #6366f1 !important;
+    border-color: #6366f1 !important;
+    box-shadow: 0 0 0 3px rgba(99,102,241,0.2) !important;
+}
+
+input[type="radio"]:checked::after {
+    content: '' !important;
+    position: absolute !important;
+    width: 6px !important;
+    height: 6px !important;
+    background: white !important;
+    border-radius: 50% !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+}
+
+input[type="checkbox"] {
+    -webkit-appearance: none !important;
+    appearance: none !important;
+    width: 16px !important;
+    height: 16px !important;
+    border: 2px solid rgba(99,102,241,0.5) !important;
+    border-radius: 4px !important;
+    background: #161929 !important;
+    cursor: pointer !important;
+    position: relative !important;
+    flex-shrink: 0 !important;
+}
+
+input[type="checkbox"]:checked {
+    background: #6366f1 !important;
+    border-color: #6366f1 !important;
+}
+
+input[type="checkbox"]:checked::after {
+    content: '✓' !important;
+    position: absolute !important;
+    color: white !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+}
