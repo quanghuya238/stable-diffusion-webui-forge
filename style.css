@@ -2092,3 +2092,49 @@ button[title="Apply style"] {
     accent-color: #6366f1 !important;
     cursor: pointer !important;
 }}
+/* ============================================================
+   ẨN VAE / TEXT ENCODER + UI row — fix selector
+   ============================================================ */
+
+/* Ẩn label "VAE / TEXT ENCODER" và cả khu vực đó */
+#quicksettings > div:has(#setting_sd_vae),
+#quicksettings > div:has([id*="vae"]),
+#quicksettings > div:has([id*="text_encoder"]) {
+    display: none !important;
+}
+
+/* Ẩn cụm UI sd/xl/flux/all */
+#quicksettings > div:has([id*="ui_tab"]),
+#quicksettings > fieldset {
+    display: none !important;
+}
+
+/* ============================================================
+   THANH KÉO — màu tím nổi bật, dễ nhìn
+   ============================================================ */
+
+.gradio-slider input[type="range"] {
+    -webkit-appearance: none !important;
+    appearance: none !important;
+    height: 4px !important;
+    background: rgba(99, 102, 241, 0.25) !important;
+    border-radius: 99px !important;
+    outline: none !important;
+    cursor: pointer !important;
+}
+
+.gradio-slider input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none !important;
+    width: 12px !important;
+    height: 12px !important;
+    border-radius: 50% !important;
+    background: #6366f1 !important;
+    border: 2px solid #a5b4fc !important;
+    cursor: pointer !important;
+    margin-top: -4px !important;
+}
+.gradio-slider input[type="range"]::-webkit-slider-runnable-track {
+    height: 4px !important;
+    background: rgba(99, 102, 241, 0.25) !important;
+    border-radius: 99px !important;
+}
