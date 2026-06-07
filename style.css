@@ -2153,3 +2153,11 @@ button[title="Apply style"] {
 #txt2img_seed_extras, #img2img_seed_extras {
     display: none !important;
 }
+/* ============================================================
+   ẨN: Resize width to, Resize height to
+   ============================================================ */
+
+#txt2img_hr_resize_x, #txt2img_hr_resize_y,
+#img2img_hr_resize_x, #img2img_hr_resize_y {
+    display: none !important;
+}
