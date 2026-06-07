@@ -2063,87 +2063,32 @@ input[type="radio"] {
     opacity: 1 !important;
 }
 /* ============================================================
-   ẨN NÚT BÚT CHÌ bên cạnh style dropdown
+   ẨN: bút chì, UI selector, VAE/TEXT ENCODER
    ============================================================ */
 
 #txt2img_style_apply, #img2img_style_apply,
-button[title="Apply style"],
-.gradio-button[title="Apply style"] {
+#txt2img_styles_edit_button, #img2img_styles_edit_button,
+button[title="Apply style"] {
     display: none !important;
 }
 
-/* ============================================================
-   THANH KÉO (SLIDER) — dễ nhìn hơn
-   ============================================================ */
-
-input[type="range"] {
-    height: 6px !important;
-    border-radius: 99px !important;
-    background: rgba(99, 102, 241, 0.2) !important;
-    accent-color: #6366f1 !important;
-    cursor: pointer !important;
-}
-
-input[type="range"]::-webkit-slider-thumb {
-    -webkit-appearance: none !important;
-    width: 18px !important;
-    height: 18px !important;
-    border-radius: 50% !important;
-    background: #6366f1 !important;
-    border: 2px solid #a5b4fc !important;
-    box-shadow: 0 0 6px rgba(99,102,241,0.5) !important;
-    cursor: pointer !important;
-}
-
-input[type="range"]::-webkit-slider-runnable-track {
-    height: 6px !important;
-    border-radius: 99px !important;
-    background: rgba(99, 102, 241, 0.2) !important;
-}
-
-input[type="range"]:focus::-webkit-slider-thumb {
-    box-shadow: 0 0 0 3px rgba(99,102,241,0.3) !important;
-}
-/* ============================================================
-   FIX: Thanh kéo căn chỉnh đúng
-   ============================================================ */
-
-.gradio-slider .wrap {
-    align-items: center !important;
-}
-
-.gradio-slider input[type="range"] {
-    margin: 0 !important;
-    padding: 0 !important;
-    vertical-align: middle !important;
-    position: relative !important;
-    top: 0 !important;
-}
-
-/* ============================================================
-   ẨN nút bút chì — đúng selector của Forge
-   ============================================================ */
-
-#txt2img_styles_edit_button,
-#img2img_styles_edit_button {
-    display: none !important;
-}
-
-/* ============================================================
-   ẨN UI selector và VAE/TEXT ENCODER trên topbar
-   ============================================================ */
-
-/* Ẩn cụm UI (sd / xl / flux / all) */
-#txt2img_ui_row,
-#img2img_ui_row,
-.ui-settings-row,
-[id*="_ui_settings_row"] {
+/* Ẩn cụm sd/xl/flux/all */
+#txt2img_ui_row, #img2img_ui_row,
+.ui-settings-row, [id*="_ui_settings_row"] {
     display: none !important;
 }
 
 /* Ẩn VAE / TEXT ENCODER */
-#txt2img_vae_column,
-#img2img_vae_column,
+#txt2img_vae_column, #img2img_vae_column,
 [id*="_vae_"] {
     display: none !important;
 }
+
+/* ============================================================
+   THANH KÉO — dễ nhìn, không lệch
+   ============================================================ */
+
+.gradio-slider input[type="range"] {
+    accent-color: #6366f1 !important;
+    cursor: pointer !important;
+}}
