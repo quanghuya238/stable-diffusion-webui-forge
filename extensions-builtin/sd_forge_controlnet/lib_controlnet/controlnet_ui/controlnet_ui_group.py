@@ -302,7 +302,7 @@ class ControlNetUiGroup(object):
                                 numpy=True
                             )
 
-                with gr.Tab(label="Batch Folder") as self.batch_tab:
+                with gr.Tab(label="Batch Folder", visible=False) as self.batch_tab:
                     with gr.Row():
                         self.batch_image_dir = gr.Textbox(
                             label="Input Directory",
@@ -316,7 +316,7 @@ class ControlNetUiGroup(object):
                             visible=False,
                         )
 
-                with gr.Tab(label="Batch Upload") as self.merge_tab:
+                with gr.Tab(label="Batch Upload", visible=False) as self.merge_tab:
                     with gr.Row():
                         with gr.Column():
                             self.batch_input_gallery = gr.Gallery(
