@@ -2138,3 +2138,18 @@ button[title="Apply style"] {
     background: rgba(99, 102, 241, 0.25) !important;
     border-radius: 99px !important;
 }
+/* ============================================================
+   ẨN: súc xắc, nút xanh, Extra cạnh SEED
+   ============================================================ */
+
+/* Ẩn nút súc xắc và nút xanh (reuse seed) */
+#txt2img_reuse_seed, #img2img_reuse_seed,
+#txt2img_reuse_last_seed, #img2img_reuse_last_seed,
+#txt2img_random_seed, #img2img_random_seed {
+    display: none !important;
+}
+
+/* Ẩn checkbox Extra */
+#txt2img_seed_extras, #img2img_seed_extras {
+    display: none !important;
+}
