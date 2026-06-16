@@ -2324,3 +2324,9 @@ input[type="checkbox"]:checked::after {
     border-color: #6366f1 !important;
     background: rgba(99,102,241,0.15) !important;
 }
+/* ẨN Soft Inpainting */
+#soft-inpainting-accordion,
+#img2img_soft_inpainting_accordion,
+[id*="soft_inpainting"] {
+    display: none !important;
+}
