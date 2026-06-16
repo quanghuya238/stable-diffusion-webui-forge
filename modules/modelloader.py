@@ -115,6 +115,21 @@ def load_upscalers():
         # Special case for UpscalerNone keeps it at the beginning of the list.
         key=lambda x: x.name.lower() if not isinstance(x.scaler, (UpscalerNone, UpscalerLanczos, UpscalerNearest)) else ""
     )
+    HIDDEN_UPSCALERS = [
+        "None",
+        "Lanczos",
+        "Nearest",
+        "Latent (antialiased)",
+        "Latent (bicubic)",
+        "Latent (bicubic antialiased)",
+        "Latent (nearest)",
+        "Latent (nearest-exact)",
+        "ScuNET GAN",
+        "ScuNET PSNR",
+        "R-ESRGAN 4x+ Anime6B",
+    ]
+
+    shared.sd_upscalers = [x for x in shared.sd_upscalers if x.name not in HIDDEN_UPSCALERS]
 
 # None: not loaded, False: failed to load, True: loaded
 _spandrel_extra_init_state = None
