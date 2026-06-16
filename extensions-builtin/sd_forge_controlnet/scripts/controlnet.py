@@ -83,9 +83,10 @@ class ControlNetForForgeOfficial(scripts.Script):
                 with gr.Row(elem_id=elem_id_tabname + "_accordions", elem_classes="accordions"):
                     for i in range(max_models):
                         with InputAccordion(
-                            value=False,
-                            label=f"ControlNet Unit {i}",
-                            elem_classes=["cnet-unit-enabled-accordion"],  # Class on accordion
+                                value=False,
+                                label=f"ControlNet Unit {i}",
+                                elem_classes=["cnet-unit-enabled-accordion"],
+                                visible=(i == 0),  # ← thêm dòng này
                         ):
                             group = ControlNetUiGroup(is_img2img, default_unit, photopea)
                             ui_groups.append(group)

@@ -402,7 +402,7 @@ class ControlNetUiGroup(object):
                 value=False,
                 elem_classes=["cnet-mask-upload"],
                 elem_id=f"{elem_id_tabname}_{tabname}_controlnet_mask_upload_checkbox",
-                visible=not self.is_img2img,
+                visible=False,
             )
             self.use_preview_as_input = gr.Checkbox(
                 label="Preview as Input",
